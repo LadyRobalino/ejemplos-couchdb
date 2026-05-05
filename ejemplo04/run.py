@@ -22,6 +22,8 @@ headers = {'Content-Type': 'application/json'}
 for doc in lista_datos:
     response = requests.post(
         url,
-        json=doc
+        json=doc,
+        auth=("Lady", "1234"),
     )
     print(f"Insertando {doc['nombre']} | {response.status_code}")
+# En el ejemplo 3 se envia todos los documentos en un solo request y en este ejemplo se envia cada documento por separado, tambien para que me cargue tuve que agregar mis credenciales en el archivo local.ini de couchdb, ya que en el ejemplo 3 no se requiere autenticacion y en este ejemplo si.

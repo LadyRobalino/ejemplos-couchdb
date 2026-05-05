@@ -17,9 +17,14 @@ base_datos = "personas003"
 url = f"http://127.0.0.1:5984/{base_datos}/_bulk_docs"
 headers = {'Content-Type': 'application/json'}
 
-# Enviar datos
+# Enviar datos con autenticacion basica
 datos_finales = {'docs': lista_datos}
-response = requests.post(url, headers=headers, json=datos_finales)
+response = requests.post(
+    url,
+    headers=headers,
+    json=datos_finales,
+    auth=("Lady", "1234"),
+)
 
 # Mostrar respuesta
 print(response.status_code)
